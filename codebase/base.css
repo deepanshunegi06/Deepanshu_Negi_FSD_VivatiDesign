@@ -1,0 +1,57 @@
+.base__span {
+  margin-bottom: 14.4px !important;
+  color: rgb(197, 133, 58);
+  display: block;
+  font-family: "DM Sans", serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  line-height: 27px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 14.4px;
+}
+.base__heading {
+  color: #000;
+  display: block;
+  font-family: "Poppins", serif;
+  font-size: 37px;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  line-height: 58.5px;
+  text-align: center;
+  padding-bottom: 8px !important;
+  margin-bottom: 70px !important;
+}
+
+
+@media (max-width: 768px) {
+  .base__span {
+    font-size: 12px;
+    line-height: 25px;
+  }
+  .base__heading {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 50px !important;
+  }
+}
+
+/* WhatsApp Button Styles */
+.whatsapp__desktop img {
+  width: 54px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  
+  .whatsapp__desktop img {
+    width: 40px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+

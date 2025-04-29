@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- animation driver code -->
+    <script defer>
+      // Scroll progress indicator
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector(".scroll-indicator").style.width =
+          scrolled + "%";
+      });
+
+      // Intersection Observer for scroll animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationDelay = `${
+                entry.target.dataset.delay * 0.2
+              }s`;
+              entry.target.style.animationPlayState = "running";
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+    <title>Vivati Design: Bespoke furniture</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="hero.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link rel="stylesheet" href="footer.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">
+        <img
+          class="logo__img"
+          src="images/logo horizontal.png"
+          alt="Vivati Design logo"
+        />
+        <img
+          class="logo__img--small"
+          src="images/logo 3x4.jpg"
+          alt="Vivati Design logo"
+        />
+      </a>
+      <ul class="navlist">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="manufacturing.html">Manufacturing</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li>
+          <a href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      <div id="menuIcon">
+        <div id="menu">
+          <span class="lines"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Office: gallery -->
+    <section class="section">
+      <div class="container">
+        <p class="base__span">Collections</p>
+        <h1 class="base__heading">Office</h1>
+        <div class="gallery">
+          <div class="gallery-item row-1 delay-1">
+            <img src="images/office/img1.jpg" alt="Mountain landscape" />
+          </div>
+          <div class="gallery-item row-1 double-row delay-2">
+            <img src="images/office/img2.jpg" alt="Modern architecture" />
+          </div>
+          <div class="gallery-item row-1 delay-3">
+            <img src="images/office/img3.jpg" alt="Waterfall" />
+          </div>
+          <div class="gallery-item row-2 double-row delay-4">
+            <img src="images/office/img4.jpg" alt="Mountain sunset" />
+          </div>
+          <div class="gallery-item row-2 double-row delay-5">
+            <img src="images/office/img5.jpg" alt="Urban night" />
+          </div>
+          <div class="gallery-item row-3 delay-6">
+            <img src="images/office/img4.jpg" alt="Mountain sunset" />
+          </div>
+          <div class="gallery-item row-3 double-row delay-7">
+            <img src="images/office/img5.jpg" alt="Urban night" />
+          </div>
+          <div class="gallery-item row-3 delay-8">
+            <img src="images/office/img6.jpg" alt="Nature landscape" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__content footer__content--display">
+          <h3 class="footer__heading">Quick Links</h3>
+          <ul class="footer__list">
+            <li class="footer__text">
+              <a class="footer__link" href="index.html">Home</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="products.html">Products</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="manufacturing.html"
+                >Manufacturing</a
+              >
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="about.html">About us</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="faq.html">FAQs</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="contact.html">Contact us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__heading">Contact Us</h3>
+
+          <div class="footer__contact">
+            <p class="footer__text">
+              <a href="tel:+91-964-333-9920" class="footer__link">
+                <i class="fas fa-phone"></i>
+                9643339920
+              </a>
+            </p>
+            <p class="footer__text">
+              <a href="mailto:vivatidesign@gmail.com" class="footer__link">
+                <i class="fas fa-envelope"></i>
+                vivatidesign@gmail.com
+              </a>
+            </p>
+            <p class="footer__text">
+              <a
+                href="https://maps.google.com/maps?ll=28.366217,77.037575&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=9105383529049231533"
+                class="footer__link"
+                target="_blank"
+              >
+                <i class="fas fa-map"></i>
+                Sector 68, Gurugram, Haryana - 122101
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__heading">Follow Us</h3>
+          <ul class="footer__social">
+            <li class="footer__text">
+              <a href="https://wa.me/+919643339920" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </li>
+            <li class="footer__text">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="footer__text">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </li>
+          </ul>
+          <iframe
+            frameborder="0"
+            class="footer__map"
+            src="//maps.google.com/maps?q=53.3381768,-6.2613077&z=15&output=embed"
+          ></iframe>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>All Rights Reserved Vivati Design &copy; 2025</p>
+      </div>
+    </footer>
+
+    <!-- Whatsapp button  -->
+    <a
+      href="https://wa.me/9643339920?text=Please give me more information."
+      class="whatsapp__desktop"
+    >
+      <img src="images/whatsapp.png" />
+    </a>
+    <!-- js link -->
+    <script src="index.js"></script>
+  </body>
+</html>

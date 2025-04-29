@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- animation driver code -->
+    <script defer>
+      // Scroll progress indicator
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector(".scroll-indicator").style.width =
+          scrolled + "%";
+      });
+
+      // Intersection Observer for scroll animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationDelay = `${
+                entry.target.dataset.delay * 0.2
+              }s`;
+              entry.target.style.animationPlayState = "running";
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+    <title>Vivati Design: Manufacturing</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootsrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="hero.css" />
+    <link rel="stylesheet" href="products.css" />
+    <link rel="stylesheet" href="video.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link rel="stylesheet" href="play.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <!-- Owl Carousel: CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="owl.css" />
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Owl Carousel: JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script defer>
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          dots: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            600: {
+              items: 2,
+            },
+            1000: {
+              items: 3,
+            },
+            1200: {
+              items: 4,
+            },
+          },
+          navText: ["<span>&#x2190;</span>", "<span>&#x2192;</span>"],
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          smartSpeed: 500,
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">
+        <img
+          class="logo__img"
+          src="images/logo horizontal.png"
+          alt="Vivati Design logo"
+        />
+        <img
+          class="logo__img--small"
+          src="images/logo 3x4.jpg"
+          alt="Vivati Design logo"
+        />
+      </a>
+      <ul class="navlist">
+        <li><a href="#">Manufacturing</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li>
+          <a href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      <div id="menuIcon">
+        <div id="menu">
+          <span class="lines"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="section" style="padding: 0">
+      <h1
+        class="base__heading manufacturing__heading--space manufacturing__heading--space-rm"
+      >
+        Our Manufacturing
+      </h1>
+      <img
+        class="collections__hero--manufacturing"
+        src="images/manufacturing/hero.jpg"
+        alt="White Desk Lamp on Brown Wooden Table"
+        style="object-position: -5px center"
+      />
+
+      <!-- Video -->
+      <div class="container container--next">
+        <p class="base__span">THE FACTORY</p>
+        <h1 class="base__heading">Crafting Quality, Creating Value</h1>
+        <div class="video">
+          <video class="video__embed" width="320" height="240" controls playsinline controlsList="nodownload noplaybackrate noremoteplayback" muted>
+            <source src="images/manufacturing/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          <div class="video__content">
+            <h2 class="video__heading">
+              A Glimpse Of Our Factory
+            </h2>
+            <p class="video__text">
+              Located in sector 68 Gurugram, on an independent one acre plot,
+              the factory has repurposed 20,000 square ft. of warehouse space
+              into a top-class Furniture Manufacturing facility. Our production
+              stands apart as we have capacity and capability with processes
+              driven assembly lines that ensure we can work in both B2B and B2C
+              segments.
+            </p>
+            <br />
+            <p class="video__text video__text--bottom">
+              We therefore are able to provide a one stop solution for all
+              furniture design and installation needs, enabling our clients to
+              create the desired living spaces.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Machinery -->
+      <div class="container">
+        <h1 class="base__heading">Our Machinery</h1>
+        <div class="owl-container">
+          <div class="owl-carousel owl-theme">
+            <div class="card">
+              <img
+                src="images/machinery/machine1.jpg"
+                alt="Automatic edge bander"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Automatic edge bander</h3>
+                <p class="card-text">
+                  Attaches edge banding smoothly to the edges of panels.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/machinery/machine2.jpg"
+                alt="3 head multi boring"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">3 head multi boring</h3>
+                <p class="card-text">Drills precise holes in wood.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/machinery/machine3.jpg"
+                alt="Panel saw"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Panel saw</h3>
+                <p class="card-text">Cuts large wood panels accurately.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/machinery/machine4.jpg"
+                alt="Hydraulic cold press 50 ton"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Hydraulic cold press 50 ton</h3>
+                <p class="card-text">
+                  Applies uniform pressure for laminating.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="images/machinery/machine5.jpg"
+                alt="Professional band saw"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Professional band saw</h3>
+                <p class="card-text">Cuts curves with high precision.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="images/machinery/machine6.jpg"
+                alt="3 head multi boring"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Surface jointer planer</h3>
+                <p class="card-text">Flattens and straightens wood.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="images/machinery/machine7.jpg"
+                alt="Spindle Moulder"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Spindle Moulder</h3>
+                <p class="card-text">Shapes wood edges with precision.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="images/machinery/machine8.jpg"
+                alt="Paint Booth"
+                class="card-img"
+              />
+              <div class="card-spacing">
+                <h3 class="card-title">Paint Booth</h3>
+                <p class="card-text">
+                  Provides a dust-free space for smooth painting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Departments -->
+      <div class="container">
+        <p class="base__span">Departments</p>
+        <h1 class="base__heading">Working Units</h1>
+        <div class="collections__grid">
+          <div class="collections__card">
+            <img
+              src="images/cards/img1.jpg"
+              alt="Solid Wood Machinery"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Solid Wood Machinery</h3>
+          </div>
+          <div class="collections__card">
+            <img
+              src="images/cards/img2.jpg"
+              alt="Carpentry"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Carpentry</h3>
+          </div>
+          <div class="collections__card">
+            <img
+              src="images/cards/img3.jpeg"
+              alt="Upholstery"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Upholstery</h3>
+          </div>
+          <div class="collections__card">
+            <img
+              src="images/cards/img4.jpg"
+              alt="Surface Finish"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Surface Finish</h3>
+          </div>
+          <div class="collections__card">
+            <img
+              src="images/cards/img5.jpg"
+              alt="Metal"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Metal</h3>
+          </div>
+          <div class="collections__card">
+            <img
+              src="images/cards/img6.jpg"
+              alt="Quality Testing"
+              class="collections__img"
+            />
+            <h3 class="collections__title">Quality Testing</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="container">
+        <p class="base__span">Gallery</p>
+        <h1 class="base__heading">Visit the factory</h1>
+        <div class="gallery">
+          <div class="gallery-item row-1 delay-1 play-container">
+            <i class="fa-solid fa-play play-button"></i>
+            <video muted loop>
+              <source src="images/manufacturing/vid3.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="gallery-item row-1 double-row delay-2">
+            <img
+              src="images/manufacturing/img2.jpg"
+              alt="Modern architecture"
+            />
+          </div>
+          <div class="gallery-item row-1 delay-3 play-container">
+            <i class="fa-solid fa-play play-button"></i>
+            <video muted loop>
+              <source src="images/manufacturing/vid2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="gallery-item row-2 double-row delay-4">
+            <img src="images/manufacturing/img4.jpg" alt="Mountain sunset" />
+          </div>
+          <div class="gallery-item row-2 double-row delay-5">
+            <img src="images/manufacturing/img5.jpg" alt="Urban night" />
+          </div>
+          <div class="gallery-item row-3 delay-6 play-container">
+            <i class="fa-solid fa-play play-button"></i>
+            <video muted loop style="object-fit: none">
+              <source src="images/manufacturing/vid4.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="gallery-item row-3 double-row delay-7">
+            <img
+              src="images/manufacturing/img8.jpg"
+              alt="Urban night"
+              style="object-position: right"
+            />
+          </div>
+          <div class="gallery-item row-3 delay-8 play-container">
+            <i class="fa-solid fa-play play-button"></i>
+            <video muted loop>
+              <source src="images/manufacturing/vid1.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay-content media-container">
+          <!-- Media (image or video) is dynamically added here -->
+        </div>
+        <button class="close-button">×</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__content footer__content--display">
+          <h3 class="footer__heading">Quick Links</h3>
+          <ul class="footer__list">
+            <li class="footer__text">
+              <a class="footer__link" href="index.html">Home</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="manufacturing.html"
+                >Manufacturing</a
+              >
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="products.html">Products</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="about.html">About us</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="faq.html">FAQs</a>
+            </li>
+            <li class="footer__text">
+              <a class="footer__link" href="contact.html">Contact us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__heading">Contact Us</h3>
+
+          <div class="footer__contact">
+            <p class="footer__text">
+              <a href="tel:+91-964-333-9920" class="footer__link">
+                <i class="fas fa-phone"></i>
+                9643339920
+              </a>
+            </p>
+            <p class="footer__text">
+              <a href="mailto:vivatidesign@gmail.com" class="footer__link">
+                <i class="fas fa-envelope"></i>
+                vivatidesign@gmail.com
+              </a>
+            </p>
+            <p class="footer__text">
+              <a
+                href="https://maps.google.com/maps?ll=28.366217,77.037575&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=9105383529049231533"
+                class="footer__link"
+                target="_blank"
+              >
+                <i class="fas fa-map"></i>
+                Sector 68, Gurugram, Haryana - 122101
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__heading">Follow Us</h3>
+          <ul class="footer__social">
+            <li class="footer__text">
+              <a href="https://wa.me/+919643339920" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </li>
+            <li class="footer__text">
+              <a
+                href="https://www.instagram.com/vivatidesignllp"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li class="footer__text">
+              <a
+                href="https://www.linkedin.com/in/vivek-chauhan-030934169/"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </li>
+          </ul>
+          <iframe
+            class="footer__map"
+            frameborder="0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.7562844549116!2d77.03270408261989!3d28.36621701344225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23cc8777a479%3A0x7e5cd213c8ac10ad!2sVivati%20Design%20LLP!5e0!3m2!1sen!2sus!4v1738998312925!5m2!1sen!2sus"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>All Rights Reserved Vivati Design &copy; 2025</p>
+      </div>
+    </footer>
+    <!-- Whatsapp button  -->
+    <a
+      href="https://wa.me/9643339920?text=Please give me more information."
+      class="whatsapp__desktop"
+    >
+      <img src="images/whatsapp.png" />
+    </a>
+    <!-- js link -->
+    <script src="index.js"></script>
+    <script src="overlay.js"></script>
+    <script src="inspect.js"></script>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let video = document.querySelector(".video__embed");
+        if (video) {
+            video.load(); // Ensures Safari loads the first frame
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video) => {
+      video.load(); // Ensures each video loads its first frame
+    });
+  });
+</script>
+</html>

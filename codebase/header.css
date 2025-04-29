@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+#menuIcon {
+  display: none;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+}
+
+/* #menuIcon:hover {
+  background: hsl(0, 0%, 92%);
+	border-radius: 5px;
+	transition: background 0.3s;
+} */
+
+#menu {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  left: 1rem;
+  width: auto;
+  height: 100%;
+}
+
+/* MENU ICON */
+
+.lines,
+.lines:before,
+.lines:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  left: 0;
+  background: #121212;
+  transition: 0.3s;
+}
+
+.lines {
+  height: 3px;
+  margin-top: -2px;
+  top: 50%;
+}
+
+.lines:before,
+.lines:after {
+  content: "";
+  height: 100%;
+
+  /* Try different values here: .25rem, .5rem, .2rem, 5rem, 10rem... */
+  transform-origin: 0.5rem center;
+}
+
+.lines:before {
+  top: 8px;
+}
+
+.lines:after {
+  top: -8px;
+}
+
+/* CLOSE ICON */
+
+.close {
+  transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.close .lines {
+  background: transparent;
+}
+
+.close .lines:before,
+.close .lines:after {
+  top: 0;
+  transform-origin: 50% 50%;
+}
+
+.close .lines:before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.close .lines:after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.header {
+  /* if req space bw logo and menu button add gap: 10px; here */
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  padding: 8px 50px;
+  width: 100%;
+  background-color: #fff;
+}
+.logo {
+  display: flex;
+}
+.logo__img {
+	max-height: 62px;
+	max-width: 100%;
+	height: auto;
+}
+.logo__img--small {
+	max-height: 52px;
+	max-width: 100%;
+	height: auto;
+	display: none;
+}
+.navlist {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.navlist a {
+  transition: all 0.55s ease;
+  margin-left: 50px;
+  border-bottom: 2px solid transparent;
+  color: #121212;
+  font-size: 15px;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.navlist a:hover {
+  color: #fea500;
+  border-bottom: 2px solid #fea500;
+}
+@media (max-width: 1080px) {
+	.header {
+		padding: 8px 20px;
+	}
+  #menuIcon {
+    display: block;
+		height: 52px;
+  }
+  .navlist {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: -200%;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.55s ease;
+    background: #fff;
+    width: 300px;
+    height: 100vh;
+  }
+  .navlist a {
+    display: block;
+    margin: 7px 0;
+    margin-left: 0;
+  }
+  .navlist.open {
+    left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .logo__img {
+		max-width: 80%;
+    padding-left: 20px;
+	}
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 0;
+  }
+	.logo__img {
+		display: block;
+	}
+	.logo__img--small {
+		display: none;
+	}
+}
+@media (max-width: 300px) {
+  .navlist {
+    width: 100%;
+  }
+}

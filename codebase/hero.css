@@ -1,0 +1,202 @@
+.hero {
+  margin-top: 60px;
+}
+.carousel__item {
+  height: 480px;
+}
+.carousel__img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+.carousel__title {
+  font-family: "Red Hat Display", serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
+  border-color: hsl(14, 87%, 50%) !important;
+  background-color: #f05423 !important;
+}
+.btn-primary:hover {
+  border-color: hsl(14, 87%, 40%) !important;
+  background-color: hsl(14, 87%, 40%) !important;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ee997f;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(253, 149, 13, 0.25);
+}
+
+@media (max-width: 1080px) {
+  .carousel__title {
+    font-size: 3rem;
+    margin-top: 15px;
+  }
+  .carousel__subtitle {
+    font-size: 1.5rem !important;
+    margin-top: 90px !important;
+  }
+}
+@media (max-width: 800px) {
+  .carousel__title {
+    font-size: 2.75rem;
+    margin-top: 95px;
+  }
+  .carousel__subtitle {
+    display: none !important;
+  }
+}
+@media (max-width: 400px) {
+  .carousel__title {
+    font-size: 2rem;
+    margin-top: 90px;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+.modal-header {
+  height: 56px;
+  flex-direction: column;
+  position: relative;
+  border: none;
+}
+
+.btn-close--right {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal__span {
+  display: block;
+  width: 100%;
+  font-family: "Rubik", sans-serif;
+  color: #f05423;
+  float: left;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin-bottom: 34px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.modal__heading {
+  color: #000;
+  display: block;
+  font-family: "Rubik", sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 60px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.modal__left {
+  display: block;
+  flex-basis: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+.modal__right {
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+  background-color: #f5f5f5;
+  color: 616261;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 34px;
+  padding: 54px;
+  text-align: left;
+}
+
+.modal__input {
+  background-color: #fff;
+  border: 0.8px solid #d2d2d2;
+  border-radius: 5px;
+  color: #000;
+  cursor: text;
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+  font-stretch: 100%;
+  font-weight: 400;
+  height: 60px;
+  margin-bottom: 10px;
+  padding: 22px;
+  text-align: start;
+  width: calc(50% - 3px);
+}
+.modal__input::placeholder {
+  letter-spacing: 3.75px;
+}
+
+.modal__input--full {
+  width: 100%;
+}
+
+.modal__input--textarea {
+  width: 100%;
+  min-height: 150px !important;
+  resize: vertical;
+}
+
+.modal__submit {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  margin-top: -16px;
+}
+
+@media (min-width: 600px) {
+  .modal--width {
+    width: 90%;
+    max-width: 768px;
+  }
+}
+@media (min-width: 1080px) {
+  .modal--width {
+    width: 90%;
+    max-width: 1167px;
+  }
+  .modal_flex {
+    display: flex;
+  }
+}
+@media (max-width: 1080px) {
+  .modal__heading {
+    text-align: center;
+  }
+  .modal__span {
+    text-align: center;
+  }
+  .modal__right {
+    padding: 32px;
+  }
+}
+@media (max-width: 400px) {
+  .modal__heading {
+    display: none;
+  }
+  .modal_flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .modal__span {
+    margin-bottom: 20px;
+  }
+}
